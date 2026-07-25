@@ -10,7 +10,18 @@
   <link rel="stylesheet" href="styles.css">
   <script defer src="script.js"></script>
 </head>
-<body>
+<body class="intro-pending">
+  <div class="art-intro" data-intro aria-label="John Royle artwork introduction">
+    <div class="intro-slide intro-slide-1" aria-hidden="true"></div>
+    <div class="intro-slide intro-slide-2" aria-hidden="true"></div>
+    <div class="intro-slide intro-slide-3" aria-hidden="true"></div>
+    <div class="intro-slide intro-slide-4" aria-hidden="true"></div>
+    <div class="intro-slide intro-slide-5" aria-hidden="true"></div>
+    <div class="intro-shade" aria-hidden="true"></div>
+    <img class="intro-logo" src="assets/logo/john-royle-art-logo.svg?v=20260725-3" alt="John Royle Art">
+    <button class="intro-skip" type="button" data-skip-intro>Skip intro</button>
+  </div>
+
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" data-header>
     <div class="shell header-inner">
@@ -69,82 +80,39 @@
           <button class="filter" data-filter="commissions">Commissions</button>
         </div>
         <div class="portfolio-grid" data-portfolio>
-          <article class="portfolio-card wide reveal" data-category="covers">
-            <div class="art-placeholder variant-a"><span>01</span></div>
-            <div class="card-copy"><p>Cover artwork</p><h2>Hero feature</h2><span>View project →</span></div>
-          </article>
-          <article class="portfolio-card reveal" data-category="characters">
-            <div class="art-placeholder variant-b"><span>02</span></div>
-            <div class="card-copy"><p>Character design</p><h2>Iconic heroes</h2><span>View project →</span></div>
-          </article>
-          <article class="portfolio-card reveal" data-category="sequential">
-            <div class="art-placeholder variant-c"><span>03</span></div>
-            <div class="card-copy"><p>Sequential art</p><h2>Visual storytelling</h2><span>View project →</span></div>
-          </article>
-          <article class="portfolio-card reveal" data-category="commissions">
-            <div class="art-placeholder variant-d"><span>04</span></div>
-            <div class="card-copy"><p>Commission</p><h2>Collector pieces</h2><span>View project →</span></div>
-          </article>
-          <article class="portfolio-card wide reveal" data-category="covers">
-            <div class="art-placeholder variant-e"><span>05</span></div>
-            <div class="card-copy"><p>Published work</p><h2>Worlds in motion</h2><span>View project →</span></div>
-          </article>
+          <article class="portfolio-card wide reveal" data-category="covers"><div class="art-placeholder variant-a"><span>01</span></div><div class="card-copy"><p>Cover artwork</p><h2>Hero feature</h2><span>View project →</span></div></article>
+          <article class="portfolio-card reveal" data-category="characters"><div class="art-placeholder variant-b"><span>02</span></div><div class="card-copy"><p>Character design</p><h2>Iconic heroes</h2><span>View project →</span></div></article>
+          <article class="portfolio-card reveal" data-category="sequential"><div class="art-placeholder variant-c"><span>03</span></div><div class="card-copy"><p>Sequential art</p><h2>Visual storytelling</h2><span>View project →</span></div></article>
+          <article class="portfolio-card reveal" data-category="commissions"><div class="art-placeholder variant-d"><span>04</span></div><div class="card-copy"><p>Commission</p><h2>Collector pieces</h2><span>View project →</span></div></article>
+          <article class="portfolio-card wide reveal" data-category="covers"><div class="art-placeholder variant-e"><span>05</span></div><div class="card-copy"><p>Published work</p><h2>Worlds in motion</h2><span>View project →</span></div></article>
         </div>
       </div>
     </section>
 
     <section class="section about-section" id="about">
       <div class="shell about-grid">
-        <div class="about-portrait reveal">
-          <div class="portrait-placeholder"><span>JR</span><small>Portrait / studio image</small></div>
-        </div>
+        <div class="about-portrait reveal"><div class="portrait-placeholder"><span>JR</span><small>Portrait / studio image</small></div></div>
         <div class="about-copy reveal">
-          <p class="eyebrow">About John</p>
-          <h2>Authentic. Bold. Timeless.</h2>
+          <p class="eyebrow">About John</p><h2>Authentic. Bold. Timeless.</h2>
           <p class="lead">John Royle is a British comic book artist known for energetic storytelling, powerful anatomy and expressive, instantly readable character work.</p>
           <p>His professional credits include work connected with Marvel, IDW, Zenescope, G.I. Joe and Action Man. This first build provides a strong editorial framework ready for John’s final biography, selected credits and approved imagery.</p>
-          <div class="stats">
-            <div><strong>30+</strong><span>Years creating</span></div>
-            <div><strong>100s</strong><span>Published pages</span></div>
-            <div><strong>Global</strong><span>Audience</span></div>
-          </div>
+          <div class="stats"><div><strong>30+</strong><span>Years creating</span></div><div><strong>100s</strong><span>Published pages</span></div><div><strong>Global</strong><span>Audience</span></div></div>
         </div>
       </div>
     </section>
 
-    <section class="clients-strip" id="clients" aria-label="Selected clients and properties">
-      <div class="shell">
-        <p class="eyebrow">Selected publishers & properties</p>
-        <div class="client-list"><span>MARVEL</span><span>IDW</span><span>ZENESCOPE</span><span>G.I. JOE</span><span>ACTION MAN</span></div>
-      </div>
-    </section>
+    <section class="clients-strip" id="clients" aria-label="Selected clients and properties"><div class="shell"><p class="eyebrow">Selected publishers & properties</p><div class="client-list"><span>MARVEL</span><span>IDW</span><span>ZENESCOPE</span><span>G.I. JOE</span><span>ACTION MAN</span></div></div></section>
 
     <section class="section contact-section" id="contact">
       <div class="shell contact-grid">
-        <div class="contact-copy reveal">
-          <p class="eyebrow">Work with John</p>
-          <h2>Have a story to tell?</h2>
-          <p>For publishing, cover art, character design, private commissions and appearance enquiries, send a message using the form.</p>
-          <a href="mailto:john@johnroyleart.com">john@johnroyleart.com</a>
-        </div>
+        <div class="contact-copy reveal"><p class="eyebrow">Work with John</p><h2>Have a story to tell?</h2><p>For publishing, cover art, character design, private commissions and appearance enquiries, send a message using the form.</p><a href="mailto:john@johnroyleart.com">john@johnroyleart.com</a></div>
         <form class="contact-form reveal" action="mailto:john@johnroyleart.com" method="post" enctype="text/plain">
-          <label>Name<input type="text" name="name" autocomplete="name" required></label>
-          <label>Email<input type="email" name="email" autocomplete="email" required></label>
-          <label>Enquiry type<select name="enquiry"><option>Publishing / professional</option><option>Private commission</option><option>Convention / appearance</option><option>Other</option></select></label>
-          <label>Message<textarea name="message" rows="6" required></textarea></label>
-          <button class="button button-primary" type="submit">Send enquiry</button>
-          <small>This initial static form opens the visitor’s email application. It can be connected to Cloudflare Forms or another service later.</small>
+          <label>Name<input type="text" name="name" autocomplete="name" required></label><label>Email<input type="email" name="email" autocomplete="email" required></label><label>Enquiry type<select name="enquiry"><option>Publishing / professional</option><option>Private commission</option><option>Convention / appearance</option><option>Other</option></select></label><label>Message<textarea name="message" rows="6" required></textarea></label><button class="button button-primary" type="submit">Send enquiry</button><small>This initial static form opens the visitor’s email application. It can be connected to Cloudflare Forms or another service later.</small>
         </form>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="shell footer-grid">
-      <img src="assets/logo/john-royle-art-logo.svg?v=20260725-3" alt="John Royle Art">
-      <p>© <span data-year></span> John Royle Art. All artwork and characters remain the property of their respective owners.</p>
-      <div><a href="#top">Back to top ↑</a></div>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="shell footer-grid"><img src="assets/logo/john-royle-art-logo.svg?v=20260725-3" alt="John Royle Art"><p>© <span data-year></span> John Royle Art. All artwork and characters remain the property of their respective owners.</p><div><a href="#top">Back to top ↑</a></div></div></footer>
 </body>
 </html>

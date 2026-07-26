@@ -4,11 +4,15 @@ const forceIntro=new URLSearchParams(location.search).get('intro')==='1';
 let introTimers=[];
 const clearIntroTimers=()=>{introTimers.forEach(clearTimeout);introTimers=[]};
 const finishIntro=()=>{if(!intro)return;clearIntroTimers();intro.classList.add('finished');document.body.classList.remove('intro-pending');sessionStorage.setItem('jraIntroSeen','1');setTimeout(()=>intro.remove(),900)};
+const giJoe099='https://raw.githubusercontent.com/rascal1234123/JRA/main/assets/assets-2/gallery/full/gijoe/gijoe-artwork-099.webp';
 const runIntro=()=>{
  if(!intro)return;
  const logo=intro.querySelector('.intro-logo');
  const shade=intro.querySelector('.intro-shade');
- const sources=[2,3,4,5,6,7,8,9];
+ const sources=[
+  'intro-2.jpg?v=20260726-3','intro-3.jpg?v=20260726-3','intro-4.jpg?v=20260726-3','intro-5.jpg?v=20260726-3',
+  'intro-6.jpg?v=20260726-3','intro-7.jpg?v=20260726-3','intro-8.jpg?v=20260726-3','intro-9.jpg?v=20260726-3',giJoe099
+ ];
  while(intro.querySelectorAll('.intro-slide').length<sources.length){const slide=document.createElement('div');slide.className='intro-slide';slide.setAttribute('aria-hidden','true');intro.insertBefore(slide,shade)}
  const slides=[...intro.querySelectorAll('.intro-slide')].slice(0,sources.length);
  const settings=[
@@ -19,9 +23,10 @@ const runIntro=()=>{
   {position:'center',from:'scale(1.03)',to:'scale(1.09)'},
   {position:'center',from:'scale(1.04) translateX(-1.5%)',to:'scale(1.09) translateX(1.5%)'},
   {position:'center',from:'scale(1.03)',to:'scale(1.09)'},
-  {position:'center',from:'scale(1.03) translateY(1%)',to:'scale(1.08) translateY(-1%)'}
+  {position:'center',from:'scale(1.03) translateY(1%)',to:'scale(1.08) translateY(-1%)'},
+  {position:'center',from:'scale(1.02)',to:'scale(1.075)'}
  ];
- slides.forEach((slide,index)=>{const config=settings[index];slide.style.animation='none';slide.style.opacity='0';slide.style.transform=config.from;slide.style.transformOrigin='center center';slide.style.transition='opacity .7s ease, transform 2.7s ease';slide.style.backgroundImage=`url('intro-${sources[index]}.jpg?v=20260726-3')`;slide.style.backgroundSize='contain';slide.style.backgroundPosition=config.position;slide.style.backgroundRepeat='no-repeat';slide.style.backgroundColor='#050505'});
+ slides.forEach((slide,index)=>{const config=settings[index];slide.style.animation='none';slide.style.opacity='0';slide.style.transform=config.from;slide.style.transformOrigin='center center';slide.style.transition='opacity .7s ease, transform 2.7s ease';slide.style.backgroundImage=`url('${sources[index]}')`;slide.style.backgroundSize='contain';slide.style.backgroundPosition=config.position;slide.style.backgroundRepeat='no-repeat';slide.style.backgroundColor='#050505'});
  if(logo){logo.style.animation='none';logo.style.opacity='1';logo.style.width='min(48vw,520px)';logo.style.maxHeight='72vh';logo.style.objectFit='contain';logo.style.transition='opacity .65s ease,width .65s ease'}
  const showSlide=index=>{slides.forEach((slide,i)=>{slide.style.opacity=i===index?'1':'0';slide.style.transform=i===index?settings[i].to:settings[i].from});if(logo)logo.style.opacity='0'};
  const start=1700,interval=2700;
@@ -40,7 +45,7 @@ document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListen
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>entry.target.classList.toggle('visible',entry.isIntersecting)),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 const heroArt=document.querySelector('[data-hero-art]');
-if(heroArt&&!matchMedia('(prefers-reduced-motion: reduce)').matches){const frames=[...heroArt.querySelectorAll('.hero-art-frame')];const images=[2,3,4,5,6,7,8,9].map(n=>`intro-${n}.jpg?v=20260726-3`);let nextImage=5,frameIndex=0,rotationTimer=null;const rotateFrame=()=>{if(!frames.length)return;const frame=frames[frameIndex%frames.length];const img=frame.querySelector('img');frame.classList.add('is-changing');setTimeout(()=>{img.src=images[nextImage%images.length];nextImage+=1;img.onload=()=>frame.classList.remove('is-changing')},650);frameIndex+=1};const startHeroRotation=()=>{if(!rotationTimer)rotationTimer=setInterval(rotateFrame,2600)};const stopHeroRotation=()=>{clearInterval(rotationTimer);rotationTimer=null};heroArt.addEventListener('mouseenter',stopHeroRotation);heroArt.addEventListener('mouseleave',startHeroRotation);heroArt.addEventListener('focusin',stopHeroRotation);heroArt.addEventListener('focusout',startHeroRotation);startHeroRotation()}
+if(heroArt&&!matchMedia('(prefers-reduced-motion: reduce)').matches){const frames=[...heroArt.querySelectorAll('.hero-art-frame')];const images=[2,3,4,5,6,7,8,9].map(n=>`intro-${n}.jpg?v=20260726-3`).concat(giJoe099);let nextImage=5,frameIndex=0,rotationTimer=null;const rotateFrame=()=>{if(!frames.length)return;const frame=frames[frameIndex%frames.length];const img=frame.querySelector('img');frame.classList.add('is-changing');setTimeout(()=>{img.src=images[nextImage%images.length];nextImage+=1;img.onload=()=>frame.classList.remove('is-changing')},650);frameIndex+=1};const startHeroRotation=()=>{if(!rotationTimer)rotationTimer=setInterval(rotateFrame,2600)};const stopHeroRotation=()=>{clearInterval(rotationTimer);rotationTimer=null};heroArt.addEventListener('mouseenter',stopHeroRotation);heroArt.addEventListener('mouseleave',startHeroRotation);heroArt.addEventListener('focusin',stopHeroRotation);heroArt.addEventListener('focusout',startHeroRotation);startHeroRotation()}
 const saleScroller=document.querySelector('[data-sale-scroller]');
 const scrollSale=direction=>{if(!saleScroller)return;const card=saleScroller.querySelector('.sale-card');const amount=(card?.getBoundingClientRect().width||320)+18;saleScroller.scrollBy({left:direction*amount,behavior:'smooth'})};
 document.querySelector('[data-sale-prev]')?.addEventListener('click',()=>scrollSale(-1));

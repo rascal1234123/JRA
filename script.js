@@ -38,6 +38,7 @@ if(intro){const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;c
 const header=document.querySelector('[data-header]');
 const menu=document.querySelector('[data-menu-button]');
 const nav=document.querySelector('[data-nav]');
+nav?.querySelectorAll('a[href="about.html"]').forEach(link=>{link.textContent='About John'});
 addEventListener('scroll',()=>header?.classList.toggle('scrolled',scrollY>20));
 menu?.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));nav?.classList.toggle('open',!open)});
 nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu?.setAttribute('aria-expanded','false')}));
